@@ -1,0 +1,39 @@
+body {
+  background-color: rgb(242, 243, 243);
+}
+
+h1 {
+  margin-top: 30px
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.card-header {
+  background-color: rgb(206, 235, 226);
+}
+
+.btn-primary {
+  background-color: rgb(223, 138, 194);
+  border-color: rgb(223, 138, 194);
+  margin-bottom: 5px;
+}
+
+.btn-primary:hover {
+  background-color: rgb(218, 79, 171);
+  border-color: rgb(218, 79, 171);
+  margin-bottom: 5px;
+}
+
+.btn-primary:active {
+  background-color: rgb(218, 79, 171) !important;
+  border-color: rgb(218, 79, 171) !important;
+  margin-bottom: 5px;
+}
+
+.btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(245, 195, 245, 0.5)
+}

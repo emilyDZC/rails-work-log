@@ -1,0 +1,16 @@
+.container
+  %h1 Emily's Work Log
+  .button-container
+    = link_to new_post_path, class: 'btn btn-primary' do
+      %i.fas.fa-plus.text-white-50.mr-1
+      New post
+  - @posts.reverse.each do |post|
+    .card
+      .card-header
+        = post.title
+        .small 
+          = post.created_at.strftime('%d %B %Y %H:%M')
+      .card-body
+        - unless post.body.nil?
+          = markdown(post.body)
+    %br/

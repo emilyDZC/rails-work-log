@@ -1,0 +1,6 @@
+.container
+  %h1 Today's Post
+  = simple_form_for @post do |f|
+    = f.input :title
+    = f.input :body, as: :text
+    = f.submit 'Create'
