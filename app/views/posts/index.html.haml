@@ -6,13 +6,15 @@
       New post
   - @posts.reverse.each do |post|
     .card
-      .card-header
+      .card-header.title
         = post.title
         .small 
-          = post.created_at.strftime('%d %B %Y %H:%M')
+          = post.created_at.strftime('%d %B %Y, %H:%M')
       .card-body
         - unless post.body.nil?
           = markdown(post.body)
+        - if post.image.present?
+          = image_tag post.image.url
       .actions.text-right
         = link_to edit_post_path(post) do
           %i.fas.fa-edit

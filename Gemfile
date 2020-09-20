@@ -5,6 +5,7 @@ ruby '2.5.1'
 
 gem 'haml-rails', '~> 2.0'
 gem 'mongoid', '~> 7.0.5'
+gem 'mongoid-paperclip'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'simple_form'
