@@ -37,3 +37,16 @@ h1 {
 .btn-primary:focus {
   box-shadow: 0 0 0 0.2rem rgba(245, 195, 245, 0.5)
 }
+
+.actions i {
+  padding-bottom: 10px;
+  padding-right: 10px;
+}
+
+.actions i {
+  color: rgb(206, 235, 226)
+}
+
+.actions i:hover {
+  text-decoration: none;
+}

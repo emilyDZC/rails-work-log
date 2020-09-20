@@ -13,4 +13,9 @@
       .card-body
         - unless post.body.nil?
           = markdown(post.body)
+      .actions.text-right
+        = link_to edit_post_path(post) do
+          %i.fas.fa-edit
+        = link_to post_path(post), method: :delete, data: { confirm: 'Are you sure?' } do
+          %i.fas.fa-trash.mr-3
     %br/
