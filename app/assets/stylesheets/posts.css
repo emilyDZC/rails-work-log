@@ -5,6 +5,7 @@ body {
 
 h1 {
   margin-top: 30px;
+  text-align: center;
 }
 
 .title {
@@ -20,6 +21,12 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+}
+
+.multi-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .card-header {
@@ -68,7 +75,7 @@ a, a:hover, a:focus {
 .widgets_container {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
   padding: 20px;
 }
@@ -80,8 +87,18 @@ a, a:hover, a:focus {
   font-size: 22px;
   font-weight: 600;
   border: 2px solid rgb(169, 196, 187);
+  margin: 20px
 }
 
 .dashboard_link a, a:hover, a:focus {
   text-decoration: none;
+}
+
+td, th {
+  padding-right: 10px;
+  padding-left: 10px
+}
+
+td {
+  vertical-align: top;
 }

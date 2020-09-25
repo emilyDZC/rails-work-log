@@ -1,6 +1,9 @@
 .container
   %h1 Emily's Work Log
-  .button-container
+  .multi-button-container
+    = link_to root_path, class: 'btn btn-primary' do
+      %i.fas.fa-home.text-white-50.mr-1
+  
     = link_to new_post_path, class: 'btn btn-primary' do
       %i.fas.fa-plus.text-white-50.mr-1
       New post
