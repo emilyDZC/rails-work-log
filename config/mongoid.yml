@@ -1,7 +1,5 @@
 development:
-  # Configure available database clients. (required)
   clients:
-    # Defines the default client. (required)
     default:
       uri: "mongodb+srv://emily:Daisy123!M@cluster1.htmns.mongodb.net/blog?retryWrites=true&w=majority"
       # Defines the name of the default database that Mongoid can connect to.
@@ -163,3 +161,7 @@ test:
         read:
           mode: :primary
         max_pool_size: 1
+production:
+  clients:
+    default:
+      uri: "mongodb+srv://emily:Daisy123!M@cluster1.htmns.mongodb.net/blog?retryWrites=true&w=majority"
