@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :posts
   resources :training_logs
+  resources :resources
 
   root to: 'dashboard#index'
 end

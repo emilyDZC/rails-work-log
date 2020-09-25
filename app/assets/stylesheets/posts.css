@@ -115,3 +115,10 @@ td {
   justify-content: center;
   align-items: center;
 }
+
+.bg-container {
+  padding: 80px;
+  background-color: rgb(227, 230, 230);
+  margin-left: 100px;
+  margin-right: 100px;
+}
