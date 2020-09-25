@@ -102,3 +102,16 @@ td, th {
 td {
   vertical-align: top;
 }
+
+.sign-out {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

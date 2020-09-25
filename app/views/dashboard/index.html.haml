@@ -1,4 +1,6 @@
 .container
+  .sign-out
+    = link_to 'Sign out', destroy_user_session_path, method: :delete
   %h1 Emily's Site
   .widgets_container
     = link_to posts_path do

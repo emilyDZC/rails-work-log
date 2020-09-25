@@ -9,4 +9,12 @@
     = javascript_pack_tag 'application'
     %script{:crossorigin => "anonymous", :src => "https://kit.fontawesome.com/8e7a8364bb.js"}
   %body
+    %div{class:'container-fluid'}
+      - flash.each do |name, message|
+        %div{ class: "alert alert-#{name.to_s == 'alert' ? 'danger' : 'info'} mb-2" }
+          %i{ class: "fas fa-#{name.to_s == 'alert' ? 'exclamation-triangle' : 'info-circle'} mr-1" }
+          = message.html_safe
+
+      - if flash.any?
+        %div.mb-4
     = yield
