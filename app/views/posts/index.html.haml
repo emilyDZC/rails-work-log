@@ -14,7 +14,7 @@
         - unless post.body.nil?
           = markdown(post.body)
         - if post.image.present?
-          = image_tag post.image.url
+          = image_tag post.image.url(:small)
       .actions.text-right
         = link_to edit_post_path(post) do
           %i.fas.fa-edit
