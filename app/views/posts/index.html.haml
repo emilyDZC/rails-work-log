@@ -8,19 +8,27 @@
       %i.fas.fa-plus.text-white-50.mr-1
       New post
   - @posts.reverse.each do |post|
-    .card
-      .card-header.title
-        = post.title
-        .small 
-          = post.created_at.strftime('%d %B %Y, %H:%M')
-      .card-body
-        - unless post.body.nil?
-          = markdown(post.body)
-        - if post.image.present?
-          = image_tag post.image.url(:small)
-      .actions.text-right
-        = link_to edit_post_path(post) do
-          %i.fas.fa-edit
-        = link_to post_path(post), method: :delete, data: { confirm: 'Are you sure?' } do
-          %i.fas.fa-trash.mr-3
-    %br/
+    - unless !current_user.admin? && post.hidden?
+      .card
+        .card-header.title
+          = post.title
+          .small 
+            = post.created_at.strftime('%d %B %Y, %H:%M')
+            - if current_user.admin?
+              - if post.hidden?
+                = link_to unhide_post_path(post), method: :get, title: 'Show post' do
+                  %i.hide-button.fas.fa-eye-slash.ml-4
+              - else
+                = link_to hide_post_path(post), method: :get, title: 'Hide post' do
+                  %i.hide-button.fas.fa-eye.ml-4
+        .card-body
+          - unless post.body.nil?
+            = markdown(post.body)
+          - if post.image.present?
+            = image_tag post.image.url(:small)
+        .actions.text-right
+          = link_to edit_post_path(post) do
+            %i.fas.fa-edit
+          = link_to post_path(post), method: :delete, data: { confirm: 'Are you sure?' } do
+            %i.fas.fa-trash.mr-3
+      %br/

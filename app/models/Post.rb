@@ -5,6 +5,7 @@ class Post
 
   field :title
   field :body
+  field :hidden, type: Boolean, default: false
 
   has_mongoid_attached_file :image,
     :styles => {
@@ -18,4 +19,8 @@ class Post
   
   validates_presence_of :title
   validates_presence_of :body
+
+  def hidden?
+    hidden
+  end
 end

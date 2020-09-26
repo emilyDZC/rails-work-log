@@ -32,6 +32,20 @@ class PostsController < ApplicationController
     end
   end
 
+  def hide
+    @post = Post.find(params[:id])
+    @post.hidden = true
+    @post.save
+    redirect_to posts_path
+  end
+
+   def unhide
+    @post = Post.find(params[:id])
+    @post.hidden = false
+    @post.save
+    redirect_to posts_path
+  end
+
   def show
   end
 
@@ -43,6 +57,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :image)
+    params.require(:post).permit(:title, :body, :image, :hidden)
   end
 end
