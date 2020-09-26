@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   
   resources :training_logs
   resources :resources
+  resources :projects
 
   root to: 'dashboard#index'
 end
