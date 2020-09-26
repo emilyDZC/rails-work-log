@@ -4,9 +4,10 @@
     = link_to root_path, class: 'btn btn-primary' do
       %i.fas.fa-home.text-white-50.mr-1
   
-    = link_to new_resource_path, class: 'btn btn-primary' do
-      %i.fas.fa-plus.text-white-50.mr-1
-      New resource
+    - if can?(:manage, Resource)
+      = link_to new_resource_path, class: 'btn btn-primary' do
+        %i.fas.fa-plus.text-white-50.mr-1
+        New resource
 
   %table.table-bordered.mt-5{width: '100%'}
     %thead
@@ -25,7 +26,8 @@
           - else
             %td{width: '40%'}
           %td{width: '10%'}
-            = link_to edit_resource_path(resource) do
-              .fas.fa-edit
-            = link_to resource_path(resource), method: :delete, data: {confirm: 'Are you sure?'} do
-              .fas.fa-trash.ml-4
+            - if can?(:manage, Resource)
+              = link_to edit_resource_path(resource) do
+                .fas.fa-edit
+              = link_to resource_path(resource), method: :delete, data: {confirm: 'Are you sure?'} do
+                .fas.fa-trash.ml-4

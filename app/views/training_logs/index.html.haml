@@ -4,9 +4,10 @@
     = link_to root_path, class: 'btn btn-primary' do
       %i.fas.fa-home.text-white-50.mr-1
   
-    = link_to new_training_log_path, class: 'btn btn-primary' do
-      %i.fas.fa-plus.text-white-50.mr-1
-      New learning log entry
+    - if can?(:manage, TrainingLog)
+      = link_to new_training_log_path, class: 'btn btn-primary' do
+        %i.fas.fa-plus.text-white-50.mr-1
+        New learning log entry
   %table.table-bordered.table-responsive.mt-5
     %thead
       %tr
@@ -24,9 +25,10 @@
           %td{width: '40%'}= markdown(log.description)
           %td.p-0{width: '20%'}= markdown(log.skills)
           %td= markdown(log.links)
-          %td
-            = link_to edit_training_log_path(log) do
-              .fas.fa-edit
-            = link_to training_log_path(log), method: :delete, data: {confirm: 'Are you sure?'} do
-              .fas.fa-trash.ml-2
+          %td{width: '10%'}
+            - if can?(:manage, TrainingLog)
+              = link_to edit_training_log_path(log) do
+                .fas.fa-edit
+              = link_to training_log_path(log), method: :delete, data: {confirm: 'Are you sure?'} do
+                .fas.fa-trash.ml-4
   

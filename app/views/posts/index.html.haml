@@ -4,8 +4,9 @@
     = link_to root_path, class: 'btn btn-primary' do
       %i.fas.fa-home.text-white-50.mr-1
   
-    = link_to new_post_path, class: 'btn btn-primary' do
-      %i.fas.fa-plus.text-white-50.mr-1
+    - if can?(:manage, Post)
+      = link_to new_post_path, class: 'btn btn-primary' do
+        %i.fas.fa-plus.text-white-50.mr-1
       New post
   - @posts.reverse.each do |post|
     - unless !current_user.admin? && post.hidden?
@@ -26,9 +27,10 @@
             = markdown(post.body)
           - if post.image.present?
             = image_tag post.image.url(:small)
-        .actions.text-right
-          = link_to edit_post_path(post) do
-            %i.fas.fa-edit
-          = link_to post_path(post), method: :delete, data: { confirm: 'Are you sure?' } do
-            %i.fas.fa-trash.mr-3
+        - if can?(:manage, Post)
+          .actions.text-right
+            = link_to edit_post_path(post) do
+              %i.fas.fa-edit
+            = link_to post_path(post), method: :delete, data: { confirm: 'Are you sure?' } do
+              %i.fas.fa-trash.mr-3
       %br/

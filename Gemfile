@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+gem 'cancancan'
 gem 'devise'
 gem 'haml-rails', '~> 2.0'
 gem 'mongoid', '~> 7.0.5'
