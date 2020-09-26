@@ -1,2 +1,31 @@
 .container
   %h1 Resources
+  .multi-button-container
+    = link_to root_path, class: 'btn btn-primary' do
+      %i.fas.fa-home.text-white-50.mr-1
+  
+    = link_to new_resource_path, class: 'btn btn-primary' do
+      %i.fas.fa-plus.text-white-50.mr-1
+      New resource
+
+  %table.table-bordered.mt-5{width: '100%'}
+    %thead
+      %tr
+        %th Name
+        %th Link
+        %th Image
+        %th
+    %tbody
+      - @resources.each do |resource|
+        %tr
+          %td= link_to resource.name, resource_path(resource)
+          %td= markdown(resource.link)
+          - if resource.image.present?
+            %td{width: '40%'}= image_tag resource.image.url(:small)
+          - else
+            %td{width: '40%'}
+          %td{width: '10%'}
+            = link_to edit_resource_path(resource) do
+              .fas.fa-edit
+            = link_to resource_path(resource), method: :delete, data: {confirm: 'Are you sure?'} do
+              .fas.fa-trash.ml-4

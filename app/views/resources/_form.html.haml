@@ -1,0 +1,5 @@
+= simple_form_for @resource do |f|
+  = f.input :name
+  = f.input :link
+  = f.input :image, as: :file
+  = f.submit 'Save Resource', class: 'btn btn-primary'

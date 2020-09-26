@@ -1,0 +1,12 @@
+.container
+  %h1= @resource.name
+  .multi-button-container
+    = link_to resources_path, class: 'btn btn-primary' do
+      %i.fas.fa-arrow-left.text-white-50.mr-1
+
+  .card.p-5
+    - if @resource.link.present?
+      %p Link: #{markdown(@resource.link)}
+
+    - if @resource.image.present?
+      %p= image_tag @resource.image.url(:small)
