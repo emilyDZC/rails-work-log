@@ -7,7 +7,7 @@
     - if can?(:manage, Post)
       = link_to new_post_path, class: 'btn btn-primary' do
         %i.fas.fa-plus.text-white-50.mr-1
-      New post
+        New post
   - @posts.reverse.each do |post|
     - unless !current_user.admin? && post.hidden?
       .card
@@ -29,6 +29,8 @@
             = image_tag post.image.url(:small)
         - if can?(:manage, Post)
           .actions.text-right
+            = link_to new_training_log_path do
+              %i.fas.fa-lightbulb.mr-1
             = link_to edit_post_path(post) do
               %i.fas.fa-edit
             = link_to post_path(post), method: :delete, data: { confirm: 'Are you sure?' } do
