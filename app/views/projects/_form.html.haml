@@ -1,0 +1,6 @@
+= simple_form_for @project do |f|
+  = f.input :name
+  = f.input :description
+  = f.input :url
+  = f.input :image, as: :file
+  = f.submit 'Save Project', class: 'btn btn-primary'

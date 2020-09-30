@@ -1,0 +1,13 @@
+.container
+  %h1= @project.name
+  .multi-button-container
+    = link_to root_path, class: 'btn btn-primary' do
+      %i.fas.fa-home.text-white-50.mr-1
+    - if can?(:manage, Project)
+      = link_to edit_project_path(@project), class: 'btn btn-primary' do
+        %i.fas.fa-edit.text-white-50.mr-1
+  .description
+    = @project.description
+    .image-container-show
+      = link_to @project.url do 
+        = image_tag @project.image.url(:large)
