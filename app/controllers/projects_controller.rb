@@ -29,7 +29,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     if @project.update(project_params)
-      redirect_to project_path(project), notice: 'Project successfully updated.'
+      redirect_to project_path(@project), notice: 'Project successfully updated.'
     else
       flash.now.alert = 'Unable to update project, please check the details and try again.'
       render :edit

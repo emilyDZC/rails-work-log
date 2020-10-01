@@ -1,14 +1,13 @@
 .container
   %h1 Learning Log
-  .multi-button-container
-    = link_to root_path, class: 'btn btn-primary' do
-      %i.fas.fa-home.text-white-50.mr-1
-  
+  .links
+    = render partial: 'dashboard/links'
+  .button-container
     - if can?(:manage, TrainingLog)
       = link_to new_training_log_path, class: 'btn btn-primary' do
         %i.fas.fa-plus.text-white-50.mr-1
         New learning log entry
-  %table.table-bordered.table-responsive.mt-5
+  %table.table-bordered.table-responsive
     %thead
       %tr
         %th Date

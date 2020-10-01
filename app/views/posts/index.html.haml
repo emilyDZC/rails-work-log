@@ -1,9 +1,8 @@
 .container
   %h1 My Work Log
-  .multi-button-container
-    = link_to root_path, class: 'btn btn-primary' do
-      %i.fas.fa-home.text-white-50.mr-1
-  
+  .links
+    = render partial: 'dashboard/links'
+  .button-container
     - if can?(:manage, Post)
       = link_to new_post_path, class: 'btn btn-primary' do
         %i.fas.fa-plus.text-white-50.mr-1
