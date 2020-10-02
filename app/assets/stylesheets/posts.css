@@ -179,7 +179,7 @@ td {
 .links {
   display: flex;
   flex-direction: row;
-  position: fixed;
+  position: absolute;
   left: 40px;
   top: 30px;
 }
