@@ -1,0 +1,13 @@
+.container
+  %h1 My Work Goals
+  .links
+    = render partial: 'dashboard/links'
+  .button-container
+    - if can?(:manage, Goal)
+      = link_to new_goal_path, class: 'btn btn-primary' do
+        %i.fas.fa-plus.text-white-50.mr-1
+        New goal
+  .goals_container
+    .goals
+      - @goals.each do |goal|
+        .li= goal.goal
